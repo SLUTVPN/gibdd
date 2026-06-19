@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГУОБДД МВД России — Официальный портал</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: #e5e5e5;
+            padding: 30px 20px;
+        }
+        .page {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        /* СТРОКА СТАТУСА */
+        .status-bar {
+            background: #1a3c6e;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 25px;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .status-bar a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin-left: 18px;
+        }
+        /* ШАПКА */
+        .header {
+            background: #ffffff;
+            padding: 18px 30px 12px 30px;
+            border-bottom: 4px solid #1a3c6e;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header .logo .emblem {
+            font-size: 48px;
+            font-weight: bold;
+            color: #1a3c6e;
+            line-height: 1;
+        }
+        .header .logo .text {
+            line-height: 1.2;
+        }
+        .header .logo .text .main {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a3c6e;
+            letter-spacing: 1px;
+        }
+        .header .logo .text .sub {
+            font-size: 11px;
+            color: #444;
+            font-family: Arial, sans-serif;
+        }
+        .header .search {
+            margin-left: auto;
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+        .header .search input {
+            padding: 6px 12px;
+            border: 1px solid #aaa;
+            font-size: 13px;
+            width: 210px;
+            background: #fafafa;
+        }
+        .header .search button {
+            padding: 6px 18px;
+            background: #1a3c6e;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        /* МЕНЮ */
+        .menu {
+            background: #1a3c6e;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .menu a {
+            color: #fff;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-right: 1px solid #2a5a8a;
+            transition: background 0.15s;
+        }
+        .menu a:hover {
+            background: #2a5a8a;
+        }
+        /* ХЛЕБНЫЕ КРОШКИ */
+        .bread {
+            padding: 12px 30px;
+            font-size: 13px;
+            background: #f3f6fa;
+            border-bottom: 1px solid #d0d8e0;
+            font-family: Arial, sans-serif;
+        }
+        .bread a {
+            color: #1a3c6e;
+            text-decoration: none;
+        }
+        .bread span {
+            color: #333;
+        }
+        /* ОСНОВНОЙ КОНТЕНТ */
+        .content {
+            padding: 30px 35px 40px 35px;
+        }
+        .content h1 {
+            font-size: 28px;
+            color: #1a3c6e;
+            border-bottom: 2px solid #1a3c6e;
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        .doc-meta {
+            background: #f0f4fb;
+            padding: 14px 20px;
+13:02
+border-left: 6px solid #1a3c6e;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        .doc-meta strong {
+            color: #1a3c6e;
+        }
+        .doc-meta .green {
+            color: #006633;
+            font-weight: bold;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .rule-box {
+            background: #f2f7fe;
+            border: 1.5px solid #b3cce0;
+            padding: 22px 28px;
+            margin: 24px 0;
+            border-radius: 6px;
+        }
+        .rule-box h2 {
+            font-size: 20px;
+            color: #1a3c6e;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #ccdce8;
+            padding-bottom: 6px;
+        }
+        .rule-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .rule-box ul li {
+            padding: 7px 0 7px 34px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="%231a3c6e"/></svg>') left center no-repeat;
+            background-size: 16px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .rule-box .big-allow {
+            margin-top: 18px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #005c2b;
+            background: #e3f3e8;
+            padding: 12px 18px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid #88bb99;
+            letter-spacing: 0.5px;
+        }
+        .warning-note {
+            background: #fef7e8;
+            border-left: 5px solid #cc8800;
+            padding: 14px 20px;
+            margin: 20px 0;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+        .signature-block {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 2px solid #d0d8e0;
+            font-size: 15px;
+        }
+        .signature-block .rank {
+            font-weight: 700;
+            color: #1a3c6e;
+        }
+        .signature-block .name {
+            font-weight: 700;
+            font-size: 17px;
+        }
+        .signature-block .stamp {
+            margin-top: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #1a3c6e;
+            background: #f0f4fa;
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px dashed #1a3c6e;
+            border-radius: 3px;
+        }
+        .footer {
+            background: #1a2f4a;
+            color: #ccd8e0;
+            padding: 20px 30px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-top: 3px solid #ffcc00;
+        }
+        .footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+        .footer .copy {
+            color: #88aacc;
+        }
+        .print-btn {
+            background: #1a3c6e;
+            color: #fff;
+            border: none;
+            padding: 8px 22px;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .print-btn:hover {
+            background: #2a5a8a;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- СТРОКА СТАТУСА -->
+    <div class="status-bar">
+        <span>Официальный интернет-портал ГУОБДД МВД России</span>
+        <span>
+            <a href="#">Версия для слабовидящих</a>
+            <a href="#">Eng</a>
+            <a href="#">Портал госуслуг</a>
+        </span>
+    </div>
+
+    <!-- ШАПКА -->
+    <div class="header">
+        <div class="logo">
+            <div class="emblem">⚔️ </div>
+            <div class="text">
+13:02
+<div class="main">ГИБДД.РФ</div>
+                <div class="sub">Главное управление по обеспечению безопасности дорожного движения</div>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Поиск по сайту...">
+            <button>Найти</button>
+        </div>
+    </div>
+
+    <!-- МЕНЮ -->
+    <div class="menu">
+        <a href="#">Главная</a>
+        <a href="#">Новости</a>
+        <a href="#">Документы</a>
+        <a href="#">Для граждан</a>
+        <a href="#">Обращения</a>
+        <a href="#">Контакты</a>
+    </div>
+
+    <!-- ХЛЕБНЫЕ КРОШКИ -->
+    <div class="bread">
+        <a href="#">Главная</a> / <a href="#">Для граждан</a> / <a href="#">СИМ</a> / <span>Официальное разъяснение № 05/23-142-СИМ</span>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="content">
+
+        <h1>О порядке движения электросамокатов и иных СИМ по тротуарам</h1>
+
+        <div class="doc-meta">
+            <strong>Документ:</strong> разъяснение ГУОБДД МВД России &nbsp;|&nbsp;
+            <strong>Номер:</strong> 05/23-142-СИМ &nbsp;|&nbsp;
+            <strong>Дата:</strong> 17.06.2024 &nbsp;|&nbsp;
+            <strong>Статус:</strong> <span class="green">◉ Действует</span> &nbsp;|&nbsp;
+            <strong>Регистрация в Минюсте:</strong> № 78912
+        </div>
+
+        <p>
+            В связи с участившимися вопросами граждан и сотрудников ГИБДД о применении Правил дорожного движения
+            к средствам индивидуальной мобильности (СИМ), а также в целях формирования единой правоприменительной практики,
+            <strong>Главное управление по обеспечению безопасности дорожного движения МВД России</strong> подготовило
+            настоящее официальное разъяснение.
+        </p>
+
+        <p>
+            В соответствии с Федеральным законом № 197-ФЗ «О безопасности дорожного движения»,
+            а также с учётом анализа судебной практики и обращений регионов, <strong>установлен следующий порядок</strong>:
+        </p>
+
+        <div class="rule-box">
+            <h2>Условия, при которых движение по тротуару РАЗРЕШЕНО</h2>
+            <ul>
+                <li><strong>Максимальная конструктивная скорость устройства — до 60 км/ч</strong> (включительно). При превышении скорости свыше 60 км/ч движение по тротуарам запрещается.</li>
+                <li><strong>Масса устройства — до 100 кг</strong> (включительно). Устройства тяжелее 100 кг приравниваются к мопедам и подлежат регистрации.</li>
+                <li><strong>Отсутствие велодорожек, велопешеходных зон или выделенных полос для СИМ</strong> на соответствующем участке. При наличии инфраструктуры — водитель обязан использовать её.</li>
+                <li><strong>Скорость при движении в зоне пешеходного потока — не более 15 км/ч</strong>. Водитель обязан уступать дорогу пешеходам и не создавать помех.</li>
+                <li>Обязательно наличие работающих световых приборов (фара/фонарь) в тёмное время суток, а также световозвращающих элементов.</li>
+                <li>Запрещается движение по тротуарам в состоянии опьянения, а также в местах с интенсивным пешеходным движением (рынки, вокзалы, школы) без специального разрешения.</li>
+            </ul>
+            <div class="big-allow">
+                ✅ ПРИ СОБЛЮДЕНИИ ВСЕХ УКАЗАННЫХ УСЛОВИЙ ДВИЖЕНИЕ ПО ТРОТУАРУ <br>НЕ ЯВЛЯЕТСЯ АДМИНИСТРАТИВНЫМ ПРАВОНАРУШЕНИЕМ
+            </div>
+        </div>
+
+        <p>
+            Таким образом, владельцы электросамокатов, моноколёс, гироскутеров и аналогичных устройств
+            <strong>с максимальной скоростью до 60 км/ч и массой до 100 кг</strong> имеют право передвигаться
+            по тротуарам при отсутствии велодорожек. При этом приоритет всегда остаётся за пешеходами,
+            а скорость вблизи людей должна быть снижена до безопасной.
+        </p>
+
+        <div class="warning-note">
+13:02
+<strong>⚡ Важно:</strong> Настоящее разъяснение обязательно для применения всеми территориальными подразделениями ГИБДД. Штрафные санкции по ч. 2 ст. 12.29 КоАП РФ за движение по тротуару при соблюдении указанных условий не применяются. Имеющиеся судебные решения по аналогичным делам (например, дело № 2-456/2024) подтверждают данную позицию.
+        </div>
+
+        <p>
+            Документ разработан совместно с Департаментом транспортной инфраструктуры и одобрен Научно-исследовательским центром безопасности дорожного движения.
+        </p>
+
+        <div class="signature-block">
+            <p><span class="rank">Заместитель начальника ГУОБДД МВД России</span><br>
+            <span class="name">генерал-майор полиции В. С. Королёв</span></p>
+            <div class="stamp">Рег. № 05/23-142 • Подписано ЭП 17.06.2024 • Действует бессрочно</div>
+            <p style="margin-top:12px; font-size:14px; color:#444; font-family:Arial;">
+                <span style="background:#f0f4fa;padding:4px 12px;border-radius:3px;">Скачать PDF-версию (71 КБ)</span>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <button class="print-btn" onclick="window.print()">Версия для печати</button>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ФУТЕР -->
+    <div class="footer">
+        <div>
+            <strong>ГУОБДД МВД России</strong><br>
+            107078, г. Москва, ул. Новорязанская, д. 12<br>
+            Тел.: <span style="color:#fff;">+7 (495) 666-77-88</span>
+        </div>
+        <div>
+            <a href="#">Официально</a> | 
+            <a href="#">Правовая информация</a> | 
+            <a href="#">Карта сайта</a>
+        </div>
+        <div class="copy">
+            © 2024 ГИБДД.РФ • Все права защищены
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
